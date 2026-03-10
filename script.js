@@ -21,6 +21,9 @@ const leaderboardY = canvas.height * 0.05;
 const leaderboardHeight = canvas.height * 0.8
 const leaderboardWidth = canvas.width * 0.2
 
+const instructionsX = canvas.width*0.85
+const instructionsY = canvas.height*0.5;
+
 const gridSize = 20;
 const cellWidth = gameWidth / gridSize;
 const cellHeight = gameHeight / gridSize;
@@ -218,6 +221,15 @@ clearBtn.addEventListener('click', () => {
   drawBoard();
 })
 
+function writeInstructions() {
+  c.font = '20px Sans-Serif'
+  c.textAlign = 'center'
+  c.textBaseline = 'middle'
+  c.fillStyle = 'white'
+  c.strokeStyle = 'white';
+  c.fillText('Use w,a,s,d or arrow keys to start', instructionsX, instructionsY)
+}
+
 function drawBoard() {
   c.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -232,6 +244,8 @@ function drawBoard() {
   c.fillRect(gameX + (fx * cellWidth), gameY + (fy * cellHeight), cellWidth, cellHeight);
 
   snake.draw();
+
+  writeInstructions();
 
   c.font = '30px Sans-Serif'
   c.textAlign = 'center'
