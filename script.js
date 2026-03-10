@@ -5,28 +5,52 @@ const submitBtn = document.getElementById('submitBtn')
 const cancelBtn = document.getElementById('cancelBtn')
 const clearBtn = document.getElementById('clearleaderboard')
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
 const c = canvas.getContext('2d');
 
-const gameHeight = canvas.height * 0.7;
-const gameWidth = gameHeight;
+window.addEventListener('resize', sizesinit);
 
-const gameX = (canvas.width / 2) - (gameWidth / 2);
-const gameY = canvas.height * 0.05;
+let gameHeight;
+let gameWidth;
+let gameX;
+let gameY;
 
-const leaderboardX = canvas.width * 0.05
-const leaderboardY = canvas.height * 0.05;
-const leaderboardHeight = canvas.height * 0.8
-const leaderboardWidth = canvas.width * 0.2
+let leaderboardX;
+let leaderboardY;
+let leaderboardHeight;
+let leaderboardWidth;
 
-const instructionsX = canvas.width*0.85
-const instructionsY = canvas.height*0.5;
+let instructionsX;
+let instructionsY;
 
-const gridSize = 20;
-const cellWidth = gameWidth / gridSize;
-const cellHeight = gameHeight / gridSize;
+let gridSize = 20;
+
+let cellWidth;
+let cellHeight;
+
+
+function sizesinit() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  gameHeight = canvas.height * 0.7;
+  gameWidth = gameHeight;
+
+  gameX = (canvas.width / 2) - (gameWidth / 2);
+  gameY = canvas.height * 0.05;
+
+  leaderboardX = canvas.width * 0.05
+  leaderboardY = canvas.height * 0.05;
+  leaderboardHeight = canvas.height * 0.8
+  leaderboardWidth = canvas.width * 0.2
+
+  instructionsX = canvas.width*0.85
+  instructionsY = canvas.height*0.5;
+
+  cellWidth = gameWidth / gridSize;
+  cellHeight = gameHeight / gridSize;
+
+  drawBoard();
+}
 
 const DIR = {
   up: { x: 0, y: -1 },
@@ -307,4 +331,4 @@ function keydown(e) {
   snake.setDirection(dir);
 }
 
-drawBoard();
+sizesinit();
