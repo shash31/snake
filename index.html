@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background: black;
+        }
+
+        #namemodal {
+            display: none;
+            height: 50vh;
+            width: 30vw;
+            position: fixed;
+            left: 35vw;
+            top: 15vh;
+            background: grey;
+            border-radius: 3%;
+            border: 5px solid black;
+            outline: 5px solid gray;
+            text-align: center;
+            align-content: center;
+            font: 2em Sans-Serif;
+        }
+
+        #namemodal * {
+            height: 3em;
+            margin: 1em 2em;
+        }
+
+        #namemodal label {
+            margin-bottom: 0;
+            display: inline-block;
+        }
+
+        #namemodal button {
+            width: 10em;
+            border-radius: 5%;
+        }
+
+        .incorrect {
+            outline: 5px solid red !important;
+        }
+
+        #clearleaderboard {
+            position: fixed;
+            top: 85vh;
+            left: 17vh;
+            /* height:  */
+            margin: 2em; 
+            padding: 1em;
+        }
+    </style>
+    <title>Snake</title>
+</head>
+<body>
+    <canvas></canvas>
+    <div id="namemodal">
+        <label for="name">Enter name for leaderboard: </label>
+        <br>
+        <input id="name" type="text" />
+        <br>
+        <button id="submitBtn">Submit</button><button id="cancelBtn">Cancel</button>
+    </div>
+    <button id="clearleaderboard">Clear leaderboard</button>
+    <script src="script.js"></script>
+</body>
+</html>
