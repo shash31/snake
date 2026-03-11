@@ -69,6 +69,7 @@ class Snake {
   }
 
   reset() {
+    // if died
     if (this.body && (this.body.length > 2)) {
       started = false;
       getName(this.body.length - 2);
